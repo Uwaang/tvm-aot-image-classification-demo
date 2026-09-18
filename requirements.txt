@@ -1,5 +1,5 @@
-# Relay + AOT/CRT API used by this demo lives in the pre-Unity TVM line.
-# Current TVM 0.26 uses Relax and no longer exposes tvm.relay.
-apache-tvm==0.14.dev273
+# Classic Relay + AOT/CRT API.
+# 0.14.dev264 still publishes a CPython 3.11 manylinux wheel on PyPI.
+apache-tvm==0.14.dev264
 onnx==1.14.1
 numpy==1.26.4
