@@ -1,3 +1,5 @@
-apache-tvm==0.26.0
-onnx>=1.17,<2
-numpy>=1.26,<3
+# Relay + AOT/CRT API used by this demo lives in the pre-Unity TVM line.
+# Current TVM 0.26 uses Relax and no longer exposes tvm.relay.
+apache-tvm==0.14.dev273
+onnx==1.14.1
+numpy==1.26.4
