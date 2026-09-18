@@ -14,5 +14,9 @@ test -f artifacts/tiny_classifier.tar
 test -f artifacts/mlf/metadata.json
 find artifacts/mlf -type f -name '*.c' -print -quit | grep .
 
+# The container runs as root, while GitHub's upload-artifact step runs as the
+# host runner user. Make generated files/directories readable and traversable.
+chmod -R a+rX artifacts
+
 echo
 echo "done: ONNX -> TVM AOT + CRT -> generated C/MLF"
