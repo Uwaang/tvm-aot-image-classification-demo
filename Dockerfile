@@ -34,7 +34,8 @@ RUN git clone --branch v0.14.0 --depth 1 --recursive --shallow-submodules \
         >> /opt/tvm/build/config.cmake \
     && cmake -S /opt/tvm -B /opt/tvm/build -G Ninja \
     && cmake --build /opt/tvm/build --parallel 2 \
-    && pip install -e /opt/tvm/python
+    && pip install -e /opt/tvm/python \
+    && pip install --force-reinstall "numpy==1.26.4"
 
 COPY . .
 
