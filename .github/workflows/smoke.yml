@@ -1,0 +1,25 @@
+name: smoke
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  docker-demo:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build image
+        run: docker compose build
+
+      - name: Run TVM AOT demo
+        run: docker compose run --rm tvm-aot
+
+      - name: Verify generated artifact
+        run: |
+          test -f artifacts/tiny_classifier.onnx
+          test -f artifacts/tiny_classifier.tar
+          test -f artifacts/mlf/metadata.json
+          find artifacts/mlf -type f -name '*.c' -print -quit | grep .
