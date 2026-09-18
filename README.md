@@ -37,7 +37,7 @@ TVM does more graph lowering, memory planning, and target-oriented compilation t
 ## Notes
 
 - Host build environment: Docker / Python 3.11
-- TVM: `apache-tvm==0.14.dev273` for the classic Relay + AOT executor + CRT path used here. TVM 0.26 has moved to Relax and does not expose `tvm.relay`.
+- TVM: `apache-tvm==0.14.dev264` for the classic Relay + AOT executor + CRT path used here. TVM 0.26 has moved to Relax and does not expose `tvm.relay`.
 - Target in this demo: portable C
 - This does not require TVM to parse ONNX on the final target device; ONNX is consumed at build time.
 
