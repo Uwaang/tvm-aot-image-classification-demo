@@ -17,6 +17,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     zlib1g-dev \
     libxml2-dev \
     libedit-dev \
+    llvm-dev \
     && rm -rf /var/lib/apt/lists/*
 
 WORKDIR /workspace
@@ -30,7 +31,7 @@ RUN git clone --branch v0.14.0 --depth 1 --recursive --shallow-submodules \
         https://github.com/apache/tvm.git /opt/tvm \
     && mkdir -p /opt/tvm/build \
     && cp /opt/tvm/cmake/config.cmake /opt/tvm/build/config.cmake \
-    && printf '\nset(CMAKE_BUILD_TYPE Release)\nset(USE_LLVM OFF)\nset(USE_MICRO ON)\n' \
+    && printf '\nset(CMAKE_BUILD_TYPE Release)\nset(USE_LLVM llvm-config)\nset(USE_MICRO ON)\n' \
         >> /opt/tvm/build/config.cmake \
     && cmake -S /opt/tvm -B /opt/tvm/build -G Ninja \
     && cmake --build /opt/tvm/build --parallel 2 \
