@@ -1,5 +1,2 @@
-# Classic Relay + AOT/CRT API.
-# 0.14.dev264 still publishes a CPython 3.11 manylinux wheel on PyPI.
-apache-tvm==0.14.dev264
 onnx==1.14.1
 numpy==1.26.4
