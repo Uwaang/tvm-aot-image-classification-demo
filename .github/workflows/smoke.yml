@@ -25,3 +25,11 @@ jobs:
         run: |
           echo "host-side artifact listing:"
           find artifacts -maxdepth 4 -type f -print 2>/dev/null || true
+
+      - name: Upload generated TVM artifacts
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tvm-aot-artifacts
+          path: artifacts/
+          if-no-files-found: error
