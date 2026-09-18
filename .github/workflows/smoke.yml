@@ -9,10 +9,13 @@ jobs:
   docker-demo:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v5
 
       - name: Build image
         run: docker compose build
+
+      - name: Check TVM Relay API
+        run: docker compose run --rm tvm-aot python -c "import tvm; from tvm import relay; print('TVM', tvm.__version__, 'Relay OK')"
 
       - name: Run TVM AOT demo
         run: docker compose run --rm tvm-aot
