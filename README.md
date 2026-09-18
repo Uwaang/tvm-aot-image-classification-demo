@@ -42,3 +42,8 @@ TVM does more graph lowering, memory planning, and target-oriented compilation t
 - This does not require TVM to parse ONNX on the final target device; ONNX is consumed at build time.
 
 CI smoke-test: `.github/workflows/smoke.yml` builds the Docker image and checks that TVM emits C/MLF artifacts.
+
+
+### TVM wheel note
+
+The classic Relay/AOT demo is pinned to `apache-tvm==0.14.dev264`. PyPI still hosts its CPython 3.11 manylinux wheel, but the current simple index used by pip no longer advertises that old build. The Docker build therefore resolves the exact archived wheel from PyPI's JSON metadata and installs that wheel URL directly.
