@@ -1,0 +1,9 @@
+services:
+  tvm-aot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    working_dir: /workspace
+    volumes:
+      - ./artifacts:/workspace/artifacts
+    command: ["bash", "scripts/run_demo.sh"]
