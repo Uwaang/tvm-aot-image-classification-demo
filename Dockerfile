@@ -12,7 +12,11 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 WORKDIR /workspace
 
 COPY requirements.txt .
-RUN pip install --upgrade pip && pip install -r requirements.txt
+COPY scripts/install_tvm_wheel.py scripts/install_tvm_wheel.py
+
+RUN pip install --upgrade pip \
+    && pip install -r requirements.txt \
+    && python scripts/install_tvm_wheel.py
 
 COPY . .
 
