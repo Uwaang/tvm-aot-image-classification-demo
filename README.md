@@ -40,3 +40,5 @@ TVM does more graph lowering, memory planning, and target-oriented compilation t
 - TVM: `apache-tvm==0.26.0`
 - Target in this demo: portable C
 - This does not require TVM to parse ONNX on the final target device; ONNX is consumed at build time.
+
+CI smoke-test: `.github/workflows/smoke.yml` builds the Docker image and checks that TVM emits C/MLF artifacts.
